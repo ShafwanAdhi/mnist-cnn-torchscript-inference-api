@@ -9,7 +9,13 @@ app = FastAPI(
     description="Inference service for CNN MNIST TorchScript model",
     version="1.0.0"
 )
-
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],  # Atau ganti dengan domain spesifik
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 model = torch.jit.load("final_mnist_cnn.ts", map_location="cpu")
 model.eval()
 
