@@ -16,6 +16,13 @@ model.eval()
 class MNISTRequest(BaseModel):
     pixels: list  #[28][28]
 
+@app.get("/")
+def root():
+    return {
+        "service": "mnist-cnn-inference",
+        "status": "running"
+    }
+
 @app.post("/predict")
 def predict(request: MNISTRequest):
     start_time = time.perf_counter()
