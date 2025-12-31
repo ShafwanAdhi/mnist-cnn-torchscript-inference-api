@@ -42,6 +42,7 @@ def predict(request: MNISTRequest):
     image = np.array(request.pixels, dtype=np.float32)
     image = image.reshape(1, 1, 28, 28)  # (N, C, H, W)
     input_tensor = torch.from_numpy(image).float()
+    input_tensor = (input_tensor - 0.1307) / 0.3081
 
     with torch.no_grad():
         logits, a,b,c = model(input_tensor)
