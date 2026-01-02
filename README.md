@@ -66,26 +66,7 @@ This repository contains the **backend inference service** for the MNIST CNN Vis
 
 ## Model Architecture
 
-```
-Input: 28×28 grayscale image (normalized)
-  │
-  ├─► Conv1: 1→10 filters (3×3, padding=1) + ReLU ──► Feature Maps 1-10
-  │                                                    (28×28×10)
-  │
-  ├─► Conv2: 10→10 filters (3×3, padding=1) + ReLU ──► Feature Maps 11-20
-  │                                                     (28×28×10)
-  │
-  ├─► MaxPool2d (2×2) ──────────────────────────────► Pooled Maps 21-30
-  │                                                     (14×14×10)
-  │
-  ├─► Global Average Pooling (AdaptiveAvgPool2d) ───► (1×1×10)
-  │   └─► Spatial dimensions reduced to 1×1 per channel
-  │
-  ├─► Flatten ──────────────────────────────────────► 10 features
-  │
-  └─► FC: 10→10 (Linear classifier) ────────────────► Logits
-      └─► Softmax → Probabilities (0-9)
-```
+<img width="1225" height="400" alt="image" src="https://github.com/user-attachments/assets/d2922c36-d2f0-472f-a0ae-1c775885b384" />
 
 ### Architecture Highlights
 
