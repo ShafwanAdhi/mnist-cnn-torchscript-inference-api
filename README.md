@@ -26,36 +26,7 @@ This repository contains the **backend inference service** for the MNIST CNN Vis
 ---
 
 ## System Architecture
-
-```
-┌──────────────────────────────────────┐
-│         FastAPI Application          │
-│  ┌────────────────────────────────┐  │
-│  │   CORS Middleware              │  │
-│  │   (Allow cross-origin calls)   │  │
-│  └────────────────────────────────┘  │
-│  ┌────────────────────────────────┐  │
-│  │   TorchScript Model Loader     │  │
-│  │   • Loaded once at startup     │  │
-│  │   • CPU-optimized inference    │  │
-│  │   • No GPU required            │  │
-│  └────────────────────────────────┘  │
-│  ┌────────────────────────────────┐  │
-│  │   /predict Endpoint            │  │
-│  │   • Input: 28×28 pixel array   │  │
-│  │   • Output: prediction + maps  │  │
-│  │   • Latency: ~5-15ms           │  │
-│  └────────────────────────────────┘  │
-└──────────────────────────────────────┘
-         │
-         ▼
-┌──────────────────────────────────────┐
-│      Railway Deployment Platform     │
-│  • Auto-scaling workers              │
-│  • Health check monitoring           │
-│  • Zero-downtime deployments         │
-└──────────────────────────────────────┘
-```
+<img width="442" height="627" alt="image" src="https://github.com/user-attachments/assets/23ba33ba-59d4-4066-be06-7f1c10133c55" />
 
 ---
 
